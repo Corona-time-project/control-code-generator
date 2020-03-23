@@ -69,12 +69,7 @@ DiagramItem::DiagramItem(DiagramType diagramType, QMenu *contextMenu,
     QPainterPath path;
     switch (myDiagramType) {
         case StartEnd:
-            path.moveTo(200, 50);
-            path.arcTo(150, 0, 50, 50, 0, 90);
-            path.arcTo(50, 0, 50, 50, 90, 90);
-            path.arcTo(50, 50, 50, 50, 180, 90);
-            path.arcTo(150, 50, 50, 50, 270, 90);
-            path.lineTo(200, 50);
+            path.addEllipse(50,-30,150,150);
             myPolygon = path.toFillPolygon().translated(-125, -50);
             break;
         case Conditional:
@@ -83,9 +78,9 @@ DiagramItem::DiagramItem(DiagramType diagramType, QMenu *contextMenu,
                       << QPointF(-100, 0);
             break;
         case Step:
-            myPolygon << QPointF(-100, -100) << QPointF(100, -100)
-                      << QPointF(100, 100) << QPointF(-100, 100)
-                      << QPointF(-100, -100);
+            myPolygon << QPointF(-50, -50) << QPointF(50, -50)
+                      << QPointF(50, 50) << QPointF(-50, 50)
+                      << QPointF(-50, -50);
             break;
         default:
             myPolygon << QPointF(-120, -80) << QPointF(-70, 80)

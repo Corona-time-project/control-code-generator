@@ -30,7 +30,8 @@ HEADERS	    =   mainwindow.h \
                 arrow.h \
                 diagramtextitem.h \
     diagramview.h \
-    undosystem.h
+    undosystem.h \
+    dialog.h
 SOURCES	    =   mainwindow.cpp \
                 diagramitem.cpp \
                 main.cpp \
@@ -38,10 +39,12 @@ SOURCES	    =   mainwindow.cpp \
                 diagramtextitem.cpp \
                 diagramscene.cpp \
     diagramview.cpp \
-    undosystem.cpp
+    undosystem.cpp \
+    dialog.cpp
 RESOURCES   =	diagramscene.qrc
 
-FORMS +=
+FORMS += \
+    dialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

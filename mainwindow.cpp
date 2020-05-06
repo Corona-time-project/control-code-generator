@@ -55,6 +55,7 @@
 #include "mainwindow.h"
 
 #include <QtWidgets>
+#include <QMessageLogger>
 
 const int InsertTextButton = 10;
 
@@ -89,6 +90,15 @@ MainWindow::MainWindow() {
 
     QWidget *widget = new QWidget;
     widget->setLayout(layout);
+/*
+    //added for test
+    //setStyleSheet( "QWidget{ background-color : rgba( 160, 160, 160, 255); border-radius : 7px;  }" );
+    QLabel *label = new QLabel(this);
+    //QHBoxLayout *layout = new QHBoxLayout();
+    label->setText("Just for testing");
+    layout->addWidget(label);
+    setLayout(layout);
+   */
 
     setCentralWidget(widget);
     setWindowTitle(tr("Diagramscene"));
@@ -122,6 +132,13 @@ void MainWindow::buttonGroupClicked(int id) {
     QList<QAbstractButton *> buttons = buttonGroup->buttons();
     QAbstractButton* clickedButton = buttonGroup->button(id);
 
+    qDebug("Testing...");
+    //Add your code here
+    //begin
+    QWidget* wdg = new QWidget;
+    wdg->show();
+    wdg->hide();
+    //end
     // set other button unchecked
     foreach (QAbstractButton *button, buttons) {
         if (clickedButton != button)
@@ -440,8 +457,18 @@ void MainWindow::createToolBox()
     buttonGroup->addButton(textButton, InsertTextButton);
     textButton->setIcon(QIcon(QPixmap(":/images/textpointer.png")));
     textButton->setIconSize(QSize(50, 50));
+    //added for test
+    QToolButton *test = new QToolButton;
+    test->setCheckable(true);
+    buttonGroup->addButton(test, InsertTextButton);
+    test->setIcon(QIcon(QPixmap(":/images/textpointer.png")));
+    test->setIconSize(QSize(50, 50));
+    /*end*/
     QGridLayout *textLayout = new QGridLayout;
     textLayout->addWidget(textButton, 0, 0, Qt::AlignHCenter);
+
+    textLayout->addWidget(test, 0, 1, Qt::AlignHCenter);
+
     textLayout->addWidget(new QLabel(tr("Text")), 1, 0, Qt::AlignCenter);
     QWidget *textWidget = new QWidget;
     textWidget->setLayout(textLayout);

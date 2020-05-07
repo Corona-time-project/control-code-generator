@@ -90,15 +90,6 @@ MainWindow::MainWindow() {
 
     QWidget *widget = new QWidget;
     widget->setLayout(layout);
-/*
-    //added for test
-    //setStyleSheet( "QWidget{ background-color : rgba( 160, 160, 160, 255); border-radius : 7px;  }" );
-    QLabel *label = new QLabel(this);
-    //QHBoxLayout *layout = new QHBoxLayout();
-    label->setText("Just for testing");
-    layout->addWidget(label);
-    setLayout(layout);
-   */
 
     setCentralWidget(widget);
     setWindowTitle(tr("Diagramscene"));
@@ -137,7 +128,6 @@ void MainWindow::buttonGroupClicked(int id) {
     //begin
     QWidget* wdg = new QWidget;
     wdg->show();
-    wdg->hide();
     //end
     // set other button unchecked
     foreach (QAbstractButton *button, buttons) {
